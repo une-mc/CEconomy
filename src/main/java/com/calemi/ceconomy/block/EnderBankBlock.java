@@ -56,6 +56,15 @@ public class EnderBankBlock extends BlockWithEntity {
             });
         }
 
+        if (!world.isClient) {
+            if (player instanceof net.minecraft.server.network.ServerPlayerEntity sp) {
+                com.calemi.ceconomy.util.AuditLog.write(
+                        sp.getUuid(), sp.getGameProfile().getName(),
+                        "OPEN_ENDERBANK | balance=" + com.calemi.ceconomy.util.EnderBalance.get(sp)
+                );
+            }
+        }
+
         return ActionResult.SUCCESS;
     }
 

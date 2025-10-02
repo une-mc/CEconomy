@@ -35,6 +35,7 @@ public class CEconomyMain implements ModInitializer {
 		CurrencyEventListener.init();
 		ValuableItemsEventListener.init();
 		com.calemi.ceconomy.event.listener.KeepCurrencyOnDeath.register();
+		com.calemi.ceconomy.event.listener.AuditSessionEvents.register();
 
 		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new ValuableItemReloadListener());
 	}
